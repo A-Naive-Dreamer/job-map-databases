@@ -1,11 +1,13 @@
-CREATE DATABASE `job_map`;
+CREATE DATABASE IF NOT EXISTS `job_map`;
 
 USE `job_map`;
 
 CREATE TABLE IF NOT EXISTS `users` (
     `id` SMALLINT(5) UNSIGNED AUTO_INCREMENT,
-    `user_pictures` VARCHAR(83) NOT NULL UNIQUE DEFAULT '/job-map/application/views/media/pictures/user-pictures/default.jpg',
+    `user_pictures` VARCHAR(75) NOT NULL UNIQUE DEFAULT '/job-map-resources/media/pictures/user-pictures/default.jpg',
     `user_pictures_number` SMALLINT(5) NOT NULL DEFAULT 1,
+    `user_videos_number` SMALLINT(5) NOT NULL DEFAULT 0,
+    `user_audios_number` SMALLINT(5) NOT NULL DEFAULT 0,
     `username` VARCHAR(50) NOT NULL UNIQUE DEFAULT 'anonymous',
     `email_address` VARCHAR(50) NOT NULL UNIQUE DEFAULT 'anonymous@email.com',
     `password` VARCHAR(50) NOT NULL DEFAULT 'secret',
@@ -42,7 +44,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 CREATE TABLE IF NOT EXISTS `companies` (
     `id` SMALLINT(5) UNSIGNED AUTO_INCREMENT,
-    `company_logo` VARCHAR(73) NOT NULL UNIQUE DEFAULT '/job-map/application/views/media/pictures/company-logos/default.jpg',
+    `company_logo` VARCHAR(65) NOT NULL UNIQUE DEFAULT '/job-map-resources/media/pictures/company-logos/default.jpg',
+    `company_pictures_number` SMALLINT(5) NOT NULL DEFAULT 1,
+    `company_videos_number` SMALLINT(5) NOT NULL DEFAULT 0,
+    `company_audios_number` SMALLINT(5) NOT NULL DEFAULT 0,
     `name` VARCHAR(50) NOT NULL DEFAULT 'Unknown Company',
     `birthday` DATE NOT NULL DEFAULT '1970-01-01',
     `address` VARCHAR(50) NOT NULL DEFAULT 'Unknown Address',
@@ -59,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `companies` (
     `unique_identity` VARCHAR(9000) NOT NULL DEFAULT 'None',
     `certifications` VARCHAR(255) NOT NULL DEFAULT '["None"]',
     `achievements` VARCHAR(255) NOT NULL DEFAULT '["None"]',
-    `company_owner_id` SMALLINT(5) UNSIGNED NOT NULL,
+    `company_owner_id` SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0,
     `created_date` DATE NOT NULL DEFAULT '1970-01-01',
     `created_time` TIME NOT NULL DEFAULT '00:00:00',
     `updated_date` DATE NOT NULL DEFAULT '1970-01-01',
@@ -76,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `job_vacancies` (
     `title` VARCHAR(50) NOT NULL DEFAULT 'Untitled',
     `description` VARCHAR(9000) NOT NULL DEFAULT 'None',
     `tags` VARCHAR(255) NOT NULL DEFAULT '["None"]',
-    `company_id` SMALLINT(5) UNSIGNED NOT NULL,
+    `company_id` SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0,
     `created_date` DATE NOT NULL DEFAULT '1970-01-01',
     `created_time` TIME NOT NULL DEFAULT '00:00:00',
     `updated_date` DATE NOT NULL DEFAULT '1970-01-01',
@@ -91,8 +96,8 @@ CREATE TABLE IF NOT EXISTS `job_requests` (
     `location` VARCHAR(50) NOT NULL DEFAULT 'Unknown Place',
     `title` VARCHAR(50) NOT NULL DEFAULT 'Untitled',
     `message` VARCHAR(255) NOT NULL DEFAULT 'None',
-    `company_id` SMALLINT(5) UNSIGNED NOT NULL,
-    `receiver_id` SMALLINT(5) UNSIGNED NOT NULL,
+    `company_id` SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0,
+    `receiver_id` SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0,
     `created_date` DATE NOT NULL DEFAULT '1970-01-01',
     `created_time` TIME NOT NULL DEFAULT '00:00:00',
     `updated_date` DATE NOT NULL DEFAULT '1970-01-01',
@@ -104,8 +109,8 @@ CREATE TABLE IF NOT EXISTS `job_requests` (
 
 CREATE TABLE IF NOT EXISTS `job_submissions` (
     `status` ENUM('Pending', 'Accepted', 'Rejected', 'Cancelled') DEFAULT 'Pending',
-    `sender_id` SMALLINT(5) UNSIGNED NOT NULL,
-    `job_vacancy_id` SMALLINT(5) UNSIGNED NOT NULL,
+    `sender_id` SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0,
+    `job_vacancy_id` SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0,
     `created_date` DATE NOT NULL DEFAULT '1970-01-01',
     `created_time` TIME NOT NULL DEFAULT '00:00:00',
     FOREIGN KEY(`sender_id`) REFERENCES `users`(`id`),
@@ -116,6 +121,8 @@ INSERT INTO `users` VALUES(
     NULL,
     '/job-map/application/views/media/pictures/user-pictures/1/1.jpg',
     1,
+    0,
+    0,
     'a-naive-dreamer',
     'anaivedreamer@gmail.com',
     'secret',
@@ -147,9 +154,9 @@ INSERT INTO `users` VALUES(
     CURRENT_TIME,
     CURRENT_DATE,
     CURRENT_TIME
-);
-
-INSERT INTO `users` VALUES(
+), (
+    DEFAULT,
+    DEFAULT,
     DEFAULT,
     DEFAULT,
     DEFAULT,
@@ -189,13 +196,16 @@ INSERT INTO `users` VALUES(
 INSERT INTO `companies` VALUES(
     1,
     '/job-map/application/views/media/pictures/company-logos/1/1.jpg',
+    1,
+    0,
+    0,
     'Tampung Penyang Software House',
     '2018-09-18',
     'Tampung Penyang V Street',
     '+62 839-3833-3732',
     'tampung_penyang@software_house.com',
     '["https://fake-link.com/fake-account"]',
-    'https://tampung-penyang-sofware-house.wordpress.com',
+    'https://tampungpenyangsofwarehouse.wordpress.com',
     'Just Fake Company.',
     '["Conquer IT world.", "Conquer Atlantic Ocean.", "Another?"]',
     '["Buy more and more supercomputer.", "Add more and more RAM Capacity.", "Anything?"]',
@@ -210,9 +220,10 @@ INSERT INTO `companies` VALUES(
     DEFAULT,
     DEFAULT,
     DEFAULT
-);
-
-INSERT INTO `companies` VALUES(
+), (
+    DEFAULT,
+    DEFAULT,
+    DEFAULT,
     DEFAULT,
     DEFAULT,
     DEFAULT,
@@ -274,3 +285,5 @@ INSERT INTO `job_submissions` VALUES(
     CURRENT_DATE,
     CURRENT_TIME
 );
+
+LOAD DATA LOCAL INFILE 'C:/xampp/htdocs/job-map-databases/mysql/data.txt' INTO TABLE `users` LINES TERMINATED BY '\r\n';
