@@ -41,7 +41,13 @@ Ready to serve databases to study.
 
 #### Screenshots
 
-![Job Map Databases Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-physical-erd.png)
+##### Entity Relationship Diagram
+
+![Job Map Databases ERD Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-physical-erd.png)
+
+##### Data Flow Diagram
+
+![Job Map Databases DFD Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-data-flow-diagram.png)
 
 ## Credits
 
