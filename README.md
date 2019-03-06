@@ -12,7 +12,7 @@ Ready to serve databases to study.
    - [Prerequisites](#prerequisites)
    - [Installation](#installation)
      - [MySQL](#mysql)
-   - [Usage][#usage]
+   - [Usage](#usage)
    - [Previews](#previews)
      - [Screenshots](#screenshots)
        - [Previews](#previews)
