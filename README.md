@@ -15,7 +15,6 @@ Ready to serve databases to study.
    - [Usage](#usage)
    - [Previews](#previews)
      - [Screenshots](#screenshots)
-       - [Previews](#previews)
 4. [Credits](#credits)
 5. [License](#license)
 
