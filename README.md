@@ -11,11 +11,11 @@ Ready to serve databases to study.
 3. [Getting Started](#getting-started)
    - [Requirements](#requirements)
    - [Installation](#installation)
-     1. [MySQL](#mysql)
+     1. [MySQL](#1-mysql)
    - [Usage](#usage)
    - [Screenshots](#screenshots)
-     1. [Entity Relationship Diagram](#entity-relationship-diagram)
-     2. [Data Flow Diagram](#data-flow-diagram)
+     1. [Entity Relationship Diagram](#1-entity-relationship-diagram)
+     2. [Data Flow Diagram](#2-data-flow-diagram)
 4. [Credits](#credits)
 5. [License](#license)
 
@@ -27,7 +27,7 @@ Ready to serve databases to study.
 
 ### Installation
 
-#### MySQL
+#### 1. MySQL
 
 1. Extract file ```job-map-databases-master.zip``` at ```C:\xampp\htdocs```.
 2. Rename folder ```job-map-databases-master``` to ```jop-map-databases```.
@@ -42,11 +42,11 @@ Ready to serve databases to study.
 
 ### Screenshots
 
-#### Entity Relationship Diagram
+#### 1. Entity Relationship Diagram
 
 ![Job Map Databases ERD Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-physical-erd.png)
 
-#### Data Flow Diagram
+#### 2. Data Flow Diagram
 
 ![Job Map Databases DFD Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-data-flow-diagram.png)
 
