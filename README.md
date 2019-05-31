@@ -42,7 +42,7 @@ Ready to serve databases to study.
 
 ### Screenshots
 
-#### 1. Entity Relationship Diagram
+#### Entity Relationship Diagram
 
 ![Job Map Databases ERD Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-physical-erd.png)
 
