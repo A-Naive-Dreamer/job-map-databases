@@ -46,7 +46,7 @@ Ready to serve databases to study.
 
 ![Job Map Databases ERD Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-physical-erd.png)
 
-#### 2. Data Flow Diagram
+#### Data Flow Diagram
 
 ![Job Map Databases DFD Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-data-flow-diagram.png)
 
