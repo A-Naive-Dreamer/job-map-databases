@@ -11,7 +11,7 @@ Ready to serve databases to study.
 3. [Getting Started](#getting-started)
    - [Requirements](#requirements)
    - [Installation](#installation)
-     - [MySQL](#mysql)
+     1. [MySQL](#mysql)
    - [Usage](#usage)
    - [Screenshots](#screenshots)
      1. [Entity Relationship Diagram](#entity-relationship-diagram)
