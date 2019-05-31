@@ -9,18 +9,19 @@ Ready to serve databases to study.
 1. [Description](#description)
 2. [Table of Contents](#table-of-contents)
 3. [Getting Started](#getting-started)
-   - [Prerequisites](#prerequisites)
+   - [Requirements](#requirements)
    - [Installation](#installation)
      - [MySQL](#mysql)
    - [Usage](#usage)
-   - [Previews](#previews)
-     - [Screenshots](#screenshots)
+   - [Screenshots](#screenshots)
+     1. [Entity Relationship Diagram](#entity-relationship-diagram)
+     2. [Data Flow Diagram](#data-flow-diagram)
 4. [Credits](#credits)
 5. [License](#license)
 
 ## Getting Started
 
-### Prerequisites
+### Requirements
 
 1. XAMPP 7.2.6
 
@@ -39,13 +40,13 @@ Ready to serve databases to study.
 
 ### Previews
 
-#### Screenshots
+### Screenshots
 
-##### Entity Relationship Diagram
+#### 1. Entity Relationship Diagram
 
 ![Job Map Databases ERD Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-physical-erd.png)
 
-##### Data Flow Diagram
+#### 2. Data Flow Diagram
 
 ![Job Map Databases DFD Screenshot](https://justanaivedreamer.files.wordpress.com/2019/03/job-map-data-flow-diagram.png)
 
