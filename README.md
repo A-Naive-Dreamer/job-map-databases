@@ -32,7 +32,7 @@ Ready to serve databases to study.
 1. Extract file ```job-map-databases-master.zip``` at ```C:\xampp\htdocs```.
 2. Rename folder ```job-map-databases-master``` to ```jop-map-databases```.
 3. Open ```PHPMyAdmin``` page.
-4. Import from ```C:\xampp\htdocs\job-map-databases\mysql\job-map.sql```.
+4. Import from ```C:\xampp\htdocs\job-map-databases\sql\mysql\job-map.sql```.
 
 ### Usage
 

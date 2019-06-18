@@ -4,13 +4,13 @@ USE `job_map`;
 
 CREATE TABLE IF NOT EXISTS `users` (
     `id` SMALLINT(5) UNSIGNED AUTO_INCREMENT,
-    `user_pictures` VARCHAR(75) NOT NULL UNIQUE DEFAULT '/job-map-resources/media/pictures/user-pictures/default.jpg',
+    `user_pictures` VARCHAR(75) NOT NULL DEFAULT '/job-map-resources/media/pictures/user-pictures/default.jpg',
     `user_pictures_number` SMALLINT(5) NOT NULL DEFAULT 1,
     `user_videos_number` SMALLINT(5) NOT NULL DEFAULT 0,
     `user_audios_number` SMALLINT(5) NOT NULL DEFAULT 0,
     `username` VARCHAR(50) NOT NULL UNIQUE DEFAULT 'anonymous',
     `email_address` VARCHAR(50) NOT NULL UNIQUE DEFAULT 'anonymous@email.com',
-    `password` VARCHAR(50) NOT NULL DEFAULT 'secret',
+    `password` VARCHAR(64) NOT NULL DEFAULT 'secret',
     `hash_key` VARCHAR(64) NOT NULL UNIQUE DEFAULT 'qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopas',
     `name` VARCHAR(50) NOT NULL DEFAULT 'Unknown Name',
     `born_place` VARCHAR(50) NOT NULL DEFAULT 'Unknown Place',
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 CREATE TABLE IF NOT EXISTS `companies` (
     `id` SMALLINT(5) UNSIGNED AUTO_INCREMENT,
-    `company_logo` VARCHAR(65) NOT NULL UNIQUE DEFAULT '/job-map-resources/media/pictures/company-logos/default.jpg',
+    `company_logo` VARCHAR(65) NOT NULL DEFAULT '/job-map-resources/media/pictures/company-logos/default.jpg',
     `company_pictures_number` SMALLINT(5) NOT NULL DEFAULT 1,
     `company_videos_number` SMALLINT(5) NOT NULL DEFAULT 0,
     `company_audios_number` SMALLINT(5) NOT NULL DEFAULT 0,
@@ -286,4 +286,7 @@ INSERT INTO `job_submissions` VALUES(
     CURRENT_TIME
 );
 
-LOAD DATA LOCAL INFILE 'C:/xampp/htdocs/job-map-databases/mysql/data.txt' INTO TABLE `users` LINES TERMINATED BY '\r\n';
+LOAD DATA INFILE 'C:\\xampp\\htdocs\\job-map-databases\\tsv\\users.tsv' IGNORE INTO TABLE `users`
+    FIELDS TERMINATED BY '\t'
+        ESCAPED BY '\\'
+    LINES TERMINATED BY '\r\n';
